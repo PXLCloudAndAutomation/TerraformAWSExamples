@@ -195,6 +195,10 @@ resource "aws_instance" "web" {
   }
 }
 
+output "address" {
+  value = "${aws_elb.web.dns_name}"
+}
+
 output "web_private_ips" {
   value = "${aws_instance.web.*.private_ip}"
 }
