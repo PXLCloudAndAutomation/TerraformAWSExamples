@@ -167,10 +167,10 @@ resource "aws_instance" "web" {
   }
   
   connection {
-        type = "ssh"
-        user = "${var.ami["user"]}"
-        private_key  = "${file("./key/id_rsa")}"
-    }
+    type = "ssh"
+    user = "${var.ami["user"]}"
+    private_key  = "${file(var.key_pair["private_path"])}"
+  }
   
   provisioner "remote-exec" {
     inline = [
