@@ -88,41 +88,49 @@ resource "aws_security_group" "ssh_http_and_all_egress" {
 }
 
 resource "aws_instance" "haproxy_load_balancer" {
-  ami = "${var.ami["id"]}"
-    instance_type = "${var.instance_type}"
-    key_name = "${aws_key_pair.main.key_name}"
+  ami           = "${var.ami["id"]}"
+  instance_type = "${var.instance_type}"
+  key_name      = "${aws_key_pair.main.key_name}"
   subnet_id     = "${aws_subnet.web.id}"
 
   vpc_security_group_ids = ["${aws_security_group.ssh_http_and_all_egress.id}"]
 
-    connection {
-        type = "ssh"
-        user = "${var.ami["user"]}"
-        private_key  = "${file(var.key_pair["private_path"])}"
-    }
+  tags = {
+    Name = "HAProxy"
+  }
+  
+  connection {
+    type         = "ssh"
+    user         = "${var.ami["user"]}"
+    private_key  = "${file(var.key_pair["private_path"])}"
+  }
 
-    provisioner "remote-exec" {
-      inline = [
-        "sudo yum install -y haproxy",
-      ]
-    }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum install -y haproxy",
+    ]
+  }
 }
 
 resource "aws_instance" "web" {
   count = "${var.web_server_count}"
 
-  ami = "${var.ami["id"]}"
+  ami           = "${var.ami["id"]}"
   instance_type = "${var.instance_type}"
-  key_name = "${aws_key_pair.main.key_name}"
+  key_name      = "${aws_key_pair.main.key_name}"
   subnet_id     = "${aws_subnet.web.id}"
   
   vpc_security_group_ids = ["${aws_security_group.ssh_http_and_all_egress.id}"]
+
+  tags {
+    Name = "Webserver${count.index}"
+  }
   
-    connection {
-        type = "ssh"
-        user = "${var.ami["user"]}"
-        private_key  = "${file(var.key_pair["private_path"])}"
-    }
+  connection {
+    type         = "ssh"
+    user         = "${var.ami["user"]}"
+    private_key  = "${file(var.key_pair["private_path"])}"
+  }
   
   provisioner "remote-exec" {
     inline = [

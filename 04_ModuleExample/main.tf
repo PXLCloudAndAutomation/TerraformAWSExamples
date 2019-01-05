@@ -8,7 +8,7 @@ module "networking" {
   cidr   = "${var.vpc["cidr_block"]}"
   name   = "${var.vpc["name"]}"
 
-  "az-subnet-mapping" = "${var.subnets}"
+  az-subnet-mapping = "${var.subnets}"
 }
 
 

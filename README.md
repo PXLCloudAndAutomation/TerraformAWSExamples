@@ -102,7 +102,7 @@ This example creates an Amazon Relational Database Service.
 >
 > Amazon RDS is available on several database instance types - optimized for memory, performance or I/O - and provides you with six familiar database engines to choose from, including Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle Database, and SQL Server. You can use the AWS Database Migration Service to easily migrate or replicate your existing databases to Amazon RDS." - [source](https://aws.amazon.com/rds/)
 
-### `08_LambdaAndRESTGateway`
+### `08_LambdaAndAPIGateway`
 This example creates an Amazon Lambda function with an Amazon API Gateway.
 
 > "AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume - there is no charge when your code is not running. " - [source](https://aws.amazon.com/lambda/)

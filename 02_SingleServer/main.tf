@@ -5,7 +5,7 @@ provider "aws" {
 
 # Do not forget to run ./create_ssh_keys_local.sh before using terraform plan/apply.
 resource "aws_key_pair" "server_key" {
-  key_name   = "KeyPairFromTerraform"
+  key_name   = "server_key"
   public_key = "${file("./key/id_rsa.pub")}"
 }
 

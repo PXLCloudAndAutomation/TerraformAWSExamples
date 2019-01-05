@@ -8,7 +8,7 @@ key_pair {
 }
 
 vpc = {
-  name = "05_HAProxy_main_VPC"
+  name = "06_ElasticLoadBalancing"
   cidr_block = "10.0.0.0/16"
 }
 

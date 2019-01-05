@@ -1,4 +1,3 @@
-# Specify the provider and access details
 provider "aws" {
   region = "${var.region}"
   version = "~> 1.54"

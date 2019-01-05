@@ -18,6 +18,10 @@ resource "aws_db_instance" "service" {
   publicly_accessible    = true
   
   skip_final_snapshot = true
+
+  tags = {
+    Name = "AWS ${var.engine} Service"
+  }
 }
 
 resource "aws_db_subnet_group" "main" {
