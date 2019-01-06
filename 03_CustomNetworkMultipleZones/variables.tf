@@ -20,6 +20,10 @@ variable "ami" {
   type = "map"
 }
 
-variable "instance_type" {
-  type = "string"
+variable "server_one" {
+  type = "map"
+}
+
+variable "server_two" {
+  type = "map"
 }

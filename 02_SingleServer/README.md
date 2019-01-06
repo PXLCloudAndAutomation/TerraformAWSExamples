@@ -8,7 +8,7 @@ One important Terraform quirk, to access the default VPC a `resource` should be 
 # 1 Before running the script
 Do not forget to run the `create_ssh_keys_local.sh` script before running `terraform` `plan` or `apply`. It will create a `key` directory containing  the private and public key to access the instance.
 
-The ouput will look like the output below:
+The ouput will look like the listing below:
 
 ```bash
 $ ./create_ssh_keys_local.sh

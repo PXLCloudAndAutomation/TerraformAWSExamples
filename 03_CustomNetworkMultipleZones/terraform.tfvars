@@ -24,11 +24,21 @@ subnets = [
   },
 ]
 
-ami {
+ami = {
  # id   =  "ami-0ac019f4fcb7cb7e6" # Ubuntu 18.04, 
  # user = ubuntu
   id   = "ami-011b3ccf1bd6db744" # RHEL, login: ec2-user 
   user = "ec2-user"
 }
 
-instance_type = "t2.micro"
+server_one = {
+  name          = "server_one", 
+  instance_type = "t2.micro",
+  private_ip    = "10.0.0.10"
+}
+
+server_two = {
+  name          = "server_two", 
+  instance_type = "t2.micro",
+  private_ip    = "10.0.1.10"
+}

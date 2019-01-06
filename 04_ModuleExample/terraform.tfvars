@@ -31,4 +31,14 @@ ami {
   user = "ec2-user"
 }
 
-instance_type = "t2.micro"
+server_one = {
+  name          = "server_one", 
+  instance_type = "t2.micro",
+  private_ip    = "10.0.0.10"
+}
+
+server_two = {
+  name          = "server_two", 
+  instance_type = "t2.micro",
+  private_ip    = "10.0.1.10"
+}

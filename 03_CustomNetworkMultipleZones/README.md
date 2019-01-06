@@ -1,5 +1,5 @@
-# Example `04_ModuleExample`
-Modules are the key ingredient to create reusable components. This Terraform example contains a network module.
+# Example `03_CustomNetworkMultipleZones`
+This code show how to create a custom network in multiple availability zones by creating two instances in different subnets.
 
 ## Important subnet information
 From [AWS Documentation » Amazon VPC » User Guide » VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html):
@@ -21,7 +21,7 @@ From [AWS Documentation » Amazon VPC » User Guide » VPCs and Subnets](https:/
 # 1 Before running the script
 Do not forget to run the `create_ssh_keys_local.sh` script before running `terraform` `plan` or `apply`. It will create a `key` directory containing  the private and public key to access the instances.
 
-The ouput will look like the output below:
+The ouput will look like the listing below:
 
 ```bash
 $ ./create_ssh_keys_local.sh
