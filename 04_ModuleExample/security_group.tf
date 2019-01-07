@@ -1,7 +1,3 @@
-# Create a security group that will allow us to both
-# SSH into the instance as well as access prometheus
-# publicly (note.: you'd not do this in prod - otherwise
-# you'd have prometheus publicly exposed).
 resource "aws_security_group" "allow-ssh-and-egress" {
   name = "main"
 
