@@ -1,6 +1,6 @@
 region = "us-east-1"
 
-key_pair {
+key_pair = {
   name         = "main_key_pair"
   private_path = "./key/id_rsa"
   public_path  = "./key/id_rsa.pub"

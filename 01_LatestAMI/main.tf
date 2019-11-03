@@ -1,5 +1,4 @@
 provider "aws" {
-  version = "~> 1.54"
   region = "us-east-1"
 }
 
@@ -38,7 +37,7 @@ resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
   
-  tags {
+  tags = {
     Name = "Latest Ubuntu 18.04 Server" # Yes, this tag starts with a capital letter N.
   }
 }

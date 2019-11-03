@@ -1,5 +1,4 @@
 provider "aws" {
-  version = "~> 1.54"
   region = "${var.region}"
 }
 
@@ -22,7 +21,7 @@ resource "aws_instance" "server_one" {
     "${aws_security_group.allow-ssh-and-egress.id}",
   ]
 
-  tags {
+  tags = {
     Name = "${var.server_one["name"]}"
   }
 }
@@ -38,7 +37,7 @@ resource "aws_instance" "server_two" {
     "${aws_security_group.allow-ssh-and-egress.id}",
   ]
 
-  tags {
+  tags = {
     Name = "${var.server_two["name"]}"
   }
 }

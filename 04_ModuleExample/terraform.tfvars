@@ -1,6 +1,6 @@
 region = "us-east-1"
 
-key_pair {
+key_pair = {
   name         = "main_key_pair"
   private_path = "./key/id_rsa"
   public_path  = "./key/id_rsa.pub"
@@ -24,7 +24,7 @@ subnets = [
   },
 ]
 
-ami {
+ami = {
  # id   =  "ami-0ac019f4fcb7cb7e6" # Ubuntu 18.04, 
  # user = ubuntu
   id   = "ami-011b3ccf1bd6db744" # RHEL, login: ec2-user 

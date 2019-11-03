@@ -1,5 +1,4 @@
 provider "aws" {
-  version = "~> 1.54"
   region = "us-east-1"
 }
 
@@ -43,7 +42,7 @@ resource "aws_security_group" "allow-ssh-ping-and-egress" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "allow-ssh-ping-and-egress" 
   }
 }
@@ -58,7 +57,7 @@ resource "aws_instance" "server" {
     "${aws_security_group.allow-ssh-ping-and-egress.id}",
   ]
   
-  tags {
+  tags = {
     Name = "ServerFromTerraform" 
   }
 }

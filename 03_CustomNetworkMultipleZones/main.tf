@@ -1,5 +1,4 @@
 provider "aws" {
-  version = "~> 1.54"
   region = "${var.region}"
 }
 
@@ -15,7 +14,7 @@ locals {
 resource "aws_vpc" "main" {
   cidr_block = "${var.vpc["cidr_block"]}"
 
-  tags {
+  tags = {
     Name = "${var.vpc["name"]}"
   }
 }
@@ -24,7 +23,7 @@ resource "aws_vpc" "main" {
 resource "aws_internet_gateway" "main" {
   vpc_id = "${aws_vpc.main.id}"
 
-  tags {
+  tags = {
     Name = "Main gateway"
   }
 }
@@ -69,7 +68,7 @@ resource "aws_security_group" "allow-ssh-and-egress" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "allow_ssh-all"
   }
 }
@@ -85,7 +84,7 @@ resource "aws_instance" "server_one" {
     "${aws_security_group.allow-ssh-and-egress.id}",
   ]
 
-  tags {
+  tags = {
     Name = "${var.server_one["name"]}"
   }
 }
@@ -101,7 +100,7 @@ resource "aws_instance" "server_two" {
     "${aws_security_group.allow-ssh-and-egress.id}",
   ]
 
-  tags {
+  tags = {
     Name = "${var.server_two["name"]}"
   }
 }
