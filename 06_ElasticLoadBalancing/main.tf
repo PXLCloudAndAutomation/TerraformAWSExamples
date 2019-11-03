@@ -1,5 +1,4 @@
 provider "aws" {
-  version = "~> 1.54"
   region = "${var.region}"
 }
 
@@ -12,7 +11,7 @@ resource "aws_vpc" "main" {
   cidr_block = "${var.vpc["cidr_block"]}"
   enable_dns_hostnames = true
 
-  tags {
+  tags = {
     Name = "${var.vpc["name"]}"
   }
 }
@@ -23,7 +22,7 @@ resource "aws_subnet" "web" {
   map_public_ip_on_launch = true
   availability_zone       = "${var.subnet["az"]}"
 
-  tags {
+  tags = {
     Name = "${var.subnet["name"]}"
   }
 }
@@ -31,7 +30,7 @@ resource "aws_subnet" "web" {
 resource "aws_internet_gateway" "main" {
   vpc_id = "${aws_vpc.main.id}"
 
-  tags {
+  tags = {
     Name = "Main gateway"
   }
 }
@@ -44,7 +43,7 @@ resource "aws_route_table" "catch_all" {
     gateway_id = "${aws_internet_gateway.main.id}"
   }
 
-  tags {
+  tags = {
     Name = "Catch All Route table"
   }
 }
@@ -162,11 +161,12 @@ resource "aws_instance" "web" {
     "${aws_security_group.ssh_http_and_all_egress.id}",
   ]
 
-  tags {
+  tags = {
     Name = "elb-example"
   }
   
   connection {
+    host = "self.public_ip"
     type = "ssh"
     user = "${var.ami["user"]}"
     private_key  = "${file(var.key_pair["private_path"])}"

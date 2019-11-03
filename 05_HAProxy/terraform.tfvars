@@ -1,6 +1,6 @@
 region = "us-east-1"
 
-key_pair {
+key_pair = {
   name         = "main_key_pair"
   private_path = "./key/id_rsa"
   public_path  = "./key/id_rsa.pub"
@@ -17,7 +17,7 @@ subnet = {
     cidr = "10.0.0.0/24"
 }
 
-ami {
+ami = {
   # The CentOS AMI should be HVM: https://wiki.centos.org/Cloud/AWS
   # (Make sure the AMI is for the proper region.)
   id   = "ami-01d5b8c6e4958a724"

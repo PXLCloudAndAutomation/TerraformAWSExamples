@@ -3,7 +3,7 @@ resource "aws_vpc" "main" {
 
   enable_dns_hostnames = true
 
-  tags {
+  tags = {
     Name = "${var.vpc["name"]}"
   }
 }
@@ -23,7 +23,7 @@ resource "aws_subnet" "subnet_1" {
   cidr_block        = "${var.subnet_1["cidr"]}"
   availability_zone = "${var.subnet_1["az"]}"
 
-  tags {
+  tags = {
     Name = "${var.subnet_1["name"]}"
   }
 }
@@ -33,7 +33,7 @@ resource "aws_subnet" "subnet_2" {
   cidr_block        = "${var.subnet_2["cidr"]}"
   availability_zone = "${var.subnet_2["az"]}"
 
-  tags {
+  tags = {
     Name = "${var.subnet_2["name"]}"
   }
 }
